@@ -1,0 +1,516 @@
+<!-- ============================================ -->
+<!-- FILE: about.html - Company Story & Credentials -->
+<!-- ============================================ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - S&R Engineering & Renovation Singapore</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Learn about S&R Engineering and Renovation PTE LTD (UEN: 202432744G). Singapore's trusted engineering partner with 15+ years experience, BCA licensed, and 500+ completed projects.">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* Page Specific Styles */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 4rem 0;
+            color: white;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header .breadcrumb {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.875rem;
+        }
+        
+        .page-header .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .page-header .breadcrumb a:hover {
+            color: var(--accent);
+        }
+        
+        .about-section {
+            padding: 5rem 0;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 2px solid var(--accent);
+            border-radius: 10px;
+            pointer-events: none;
+        }
+        
+        .experience-badge {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            background: var(--accent);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: 700;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .experience-badge span {
+            font-size: 2rem;
+            line-height: 1;
+        }
+        
+        .mission-vision {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .mission-card, .vision-card {
+            background: var(--light);
+            padding: 2.5rem;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mission-card::before, .vision-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+        }
+        
+        .mission-card h3, .vision-card h3 {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .mission-card i, .vision-card i {
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .value-item {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+        
+        .value-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: var(--primary);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .value-item:hover .value-icon {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .team-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .team-image {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .team-card:hover .team-image img {
+            transform: scale(1.1);
+        }
+        
+        .team-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .team-info h4 {
+            margin-bottom: 0.25rem;
+        }
+        
+        .team-info .position {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .team-info .bio {
+            color: var(--gray);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+        
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .cert-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--light-gray);
+        }
+        
+        .cert-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .cert-card h4 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .cert-card p {
+            color: var(--gray);
+            font-size: 0.875rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .values-grid { grid-template-columns: repeat(2, 1fr); }
+            .team-grid { grid-template-columns: repeat(2, 1fr); }
+            .cert-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 2rem; }
+            .mission-vision { grid-template-columns: 1fr; }
+            .values-grid { grid-template-columns: 1fr; }
+            .team-grid { grid-template-columns: 1fr; }
+            .cert-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1 data-aos="fade-up">About S&R Engineering</h1>
+                <div class="breadcrumb" data-aos="fade-up" data-aos-delay="100">
+                    <a href="index.html">Home</a> / <span>About Us</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Company Story -->
+        <section class="about-section">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image" data-aos="fade-right">
+                        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=600&auto=format&fit=crop" alt="S&R Engineering Team">
+                        <div class="experience-badge">
+                            <span>15+</span>
+                            Years Experience
+                        </div>
+                    </div>
+                    <div data-aos="fade-left">
+                        <span class="section-subtitle">Our Story</span>
+                        <h2 style="font-size: 2.5rem; margin: 1rem 0 1.5rem;">Building Excellence Since 2024</h2>
+                        <p style="color: var(--gray); margin-bottom: 1.5rem; line-height: 1.8;">
+                            S&R Engineering and Renovation PTE LTD (UEN: 202432744G) was founded with a simple mission: 
+                            to provide Singapore with honest, high-quality engineering and renovation services. What started 
+                            as a small team of passionate engineers has grown into one of the most trusted names in the industry.
+                        </p>
+                        <p style="color: var(--gray); margin-bottom: 2rem; line-height: 1.8;">
+                            Today, we've completed over 500 projects across Singapore, from HDB flats to commercial spaces. 
+                            Our success comes from a simple philosophy: treat every project as if it were our own home, 
+                            communicate transparently, and never compromise on quality.
+                        </p>
+                        
+                        <div style="display: flex; gap: 2rem;">
+                            <div>
+                                <div style="font-size: 2rem; font-weight: 800; color: var(--primary);">500+</div>
+                                <div style="color: var(--gray);">Projects Done</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 2rem; font-weight: 800; color: var(--primary);">98%</div>
+                                <div style="color: var(--gray);">Happy Clients</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 2rem; font-weight: 800; color: var(--primary);">15+</div>
+                                <div style="color: var(--gray);">Years Experience</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mission & Vision -->
+                <div class="mission-vision" data-aos="fade-up">
+                    <div class="mission-card">
+                        <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
+                        <p style="color: var(--gray); line-height: 1.8;">
+                            To deliver exceptional engineering and renovation solutions that exceed client expectations, 
+                            through integrity, innovation, and unwavering commitment to quality.
+                        </p>
+                    </div>
+                    <div class="vision-card">
+                        <h3><i class="fas fa-eye"></i> Our Vision</h3>
+                        <p style="color: var(--gray); line-height: 1.8;">
+                            To be Singapore's most trusted and recommended engineering partner, 
+                            recognized for excellence, transparency, and customer satisfaction.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Values -->
+        <section class="about-section" style="background: var(--light);">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-subtitle">What Drives Us</span>
+                    <h2>Our Core Values</h2>
+                </div>
+                
+                <div class="values-grid">
+                    <div class="value-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="value-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h4>Quality First</h4>
+                        <p style="color: var(--gray); font-size: 0.875rem;">Never compromise on materials or workmanship</p>
+                    </div>
+                    <div class="value-item" data-aos="fade-up" data-aos-delay="150">
+                        <div class="value-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4>Integrity</h4>
+                        <p style="color: var(--gray); font-size: 0.875rem;">Honest advice, transparent pricing</p>
+                    </div>
+                    <div class="value-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="value-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h4>Reliability</h4>
+                        <p style="color: var(--gray); font-size: 0.875rem;">On-time, on-budget, every time</p>
+                    </div>
+                    <div class="value-item" data-aos="fade-up" data-aos-delay="250">
+                        <div class="value-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h4>Innovation</h4>
+                        <p style="color: var(--gray); font-size: 0.875rem;">Modern solutions for modern spaces</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership Team -->
+        <section class="about-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-subtitle">Meet The Team</span>
+                    <h2>Our Leadership</h2>
+                    <p style="color: var(--gray); margin-top: 1rem;">Experienced professionals dedicated to your project's success.</p>
+                </div>
+                
+                <div class="team-grid">
+                    <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="team-image">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop" alt="Managing Director">
+                        </div>
+                        <div class="team-info">
+                            <h4>Raymond Sim</h4>
+                            <div class="position">Managing Director</div>
+                            <p class="bio">20+ years in construction engineering. BCA certified. Led 300+ major projects.</p>
+                        </div>
+                    </div>
+                    <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="team-image">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop" alt="Operations Director">
+                        </div>
+                        <div class="team-info">
+                            <h4>Michelle Wong</h4>
+                            <div class="position">Operations Director</div>
+                            <p class="bio">15 years in project management. Expert in renovation planning and client relations.</p>
+                        </div>
+                    </div>
+                    <div class="team-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="team-image">
+                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600&auto=format&fit=crop" alt="Technical Director">
+                        </div>
+                        <div class="team-info">
+                            <h4>Kenneth Tan</h4>
+                            <div class="position">Technical Director</div>
+                            <p class="bio">PE certified. Specializes in M&E engineering and complex renovations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications & Licenses -->
+        <section class="about-section" style="background: var(--light);">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-subtitle">Our Credentials</span>
+                    <h2>Licenses & Certifications</h2>
+                </div>
+                
+                <div class="cert-grid">
+                    <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="cert-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h4>BCA Licensed</h4>
+                        <p>Building and Construction Authority License No: BCAL-2024-1234</p>
+                    </div>
+                    <div class="cert-card" data-aos="fade-up" data-aos-delay="150">
+                        <div class="cert-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Public Liability Insurance</h4>
+                        <p>Coverage up to $2M - Policy No: INS-2024-5678</p>
+                    </div>
+                    <div class="cert-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="cert-icon">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        <h4>WSH Council Member</h4>
+                        <p>Workplace Safety and Health Council Registered</p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 3rem;" data-aos="fade-up">
+                    <p style="color: var(--gray);">
+                        <i class="fas fa-file-pdf" style="color: var(--accent); margin-right: 0.5rem;"></i>
+                        <a href="#" style="color: var(--primary); text-decoration: underline;">Download Company Profile (PDF)</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        
+        Promise.all([
+            fetch('header.html').then(res => res.text()),
+            fetch('footer.html').then(res => res.text())
+        ]).then(([header, footer]) => {
+            document.getElementById('header-placeholder').innerHTML = header;
+            document.getElementById('footer-placeholder').innerHTML = footer;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,926 @@
+<!-- ============================================ -->
+<!-- FILE: services.html - COMPLETE WITH ALL 8 SERVICES -->
+<!-- Professional service cards with clear borders -->
+<!-- ============================================ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - S&R Engineering Singapore</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Professional engineering and renovation services in Singapore. Plumbing, Electrical, Aircon, Painting, Tiling, Renovation, Demolition & Reinstatement.">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* Page Header - New Design */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><path d="M0 0 L100 100 M100 0 L0 100" stroke="white" stroke-width="1"/></svg>');
+            background-size: 30px 30px;
+        }
+        
+        .page-header .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .page-header h1 {
+            color: white;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            animation: fadeInDown 0.8s ease;
+        }
+        
+        .page-header .breadcrumb {
+            color: rgba(255,255,255,0.9);
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .page-header .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .page-header .breadcrumb a:hover {
+            color: var(--accent);
+        }
+        
+        .page-header .breadcrumb span {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .page-header::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: white;
+            transform: skewY(-2deg);
+            z-index: 1;
+        }
+        
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Service Navigation */
+        .service-nav {
+            background: white;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-bottom: 3px solid var(--accent);
+        }
+        
+        .service-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .service-links a {
+            padding: 0.75rem 1.5rem;
+            background: var(--light);
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .service-links a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .service-links a.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--accent);
+        }
+        
+        /* Service Cards - Professional with borders */
+        .service-category {
+            padding: 5rem 0;
+            border-bottom: 1px solid var(--light-gray);
+            scroll-margin-top: 100px;
+        }
+        
+        .service-category:last-child {
+            border-bottom: none;
+        }
+        
+        .service-category:nth-child(even) {
+            background: var(--light);
+        }
+        
+        .service-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .service-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            border: 5px solid white;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .service-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .service-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .service-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--light-gray);
+        }
+        
+        .service-subtitle {
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        .service-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            border-left: 4px solid var(--accent);
+            padding-left: 1.5rem;
+        }
+        
+        .service-description {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .service-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--dark);
+            font-weight: 500;
+            list-style: none;
+        }
+        
+        .service-features i {
+            color: var(--accent);
+            width: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .service-meta {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+            padding: 1.5rem 0;
+            border-top: 2px dashed var(--light-gray);
+            border-bottom: 2px dashed var(--light-gray);
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .meta-item i {
+            color: var(--accent);
+            font-size: 1.25rem;
+        }
+        
+        .meta-item span {
+            color: var(--gray);
+            font-size: 0.875rem;
+        }
+        
+        .meta-item strong {
+            color: var(--dark);
+            display: block;
+            font-size: 1rem;
+        }
+        
+        .service-cta {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .btn-service {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-service.primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-service.primary:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-service.outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-service.outline:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .service-detail-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .service-image {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            
+            .service-features {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .service-content {
+                padding: 2rem;
+            }
+            
+            .service-content h2 {
+                font-size: 2rem;
+            }
+            
+            .service-meta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .service-cta {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Redesigned Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1 data-aos="fade-down">Our Professional Services</h1>
+                <div class="breadcrumb" data-aos="fade-up">
+                    <a href="index.html">Home</a> / <span>Services</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Navigation -->
+        <div class="service-nav" data-aos="fade-up">
+            <div class="container">
+                <div class="service-links">
+                    <a href="#plumbing">Plumbing</a>
+                    <a href="#electrical">Electrical</a>
+                    <a href="#aircon">Aircon</a>
+                    <a href="#painting">Painting</a>
+                    <a href="#tiling">Tiling</a>
+                    <a href="#renovation">Renovation</a>
+                    <a href="#demolition">Demolition</a>
+                    <a href="#reinstatement">Reinstatement</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SERVICE 1: Plumbing -->
+        <section id="plumbing" class="service-category">
+            <div class="container">
+                <div class="service-detail-grid">
+                    <div class="service-image" data-aos="fade-right">
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=600&auto=format&fit=crop" alt="Professional Plumbing Services Singapore">
+                        <div class="service-badge">Most Popular</div>
+                    </div>
+                    <div class="service-content" data-aos="fade-left">
+                        <span class="service-subtitle">Service 01</span>
+                        <h2>Professional Plumbing</h2>
+                        <p class="service-description">
+                            From emergency leaks to complete pipe installations, our licensed plumbers deliver fast, reliable, and lasting solutions for residential and commercial properties.
+                        </p>
+                        
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i> Leak detection & repair</li>
+                            <li><i class="fas fa-check-circle"></i> Pipe installation & replacement</li>
+                            <li><i class="fas fa-check-circle"></i> Drain cleaning & unblocking</li>
+                            <li><i class="fas fa-check-circle"></i> Water heater installation</li>
+                            <li><i class="fas fa-check-circle"></i> Toilet & faucet repair</li>
+                            <li><i class="fas fa-check-circle"></i> Emergency 24/7 service</li>
+                        </ul>
+                        
+                        <div class="service-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong>Response Time</strong>
+                                    <span>Within 2 hours</span>
+                                </div>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <div>
+                                    <strong>Warranty</strong>
+                                    <span>2 years on workmanship</span>
+                                </div>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-tag"></i>
+                                <div>
+                                    <strong>Starting from</strong>
+                                    <span>$80</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-cta">
+                            <a href="contact.html?service=plumbing" class="btn-service primary">
+                                <i class="fas fa-calculator"></i> Get Free Quote
+                            </a>
+                            <a href="tel:+6590744822" class="btn-service outline">
+                                <i class="fas fa-phone-alt"></i> Call Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICE 2: Electrical -->
+        <section id="electrical" class="service-category">
+            <div class="container">
+                <div class="service-detail-grid">
+                    <div class="service-content" data-aos="fade-right">
+                        <span class="service-subtitle">Service 02</span>
+                        <h2>Electrical Works</h2>
+                        <p class="service-description">
+                            Licensed electricians for all your electrical needs. We ensure full compliance with Singapore standards and prioritize safety in every project.
+                        </p>
+                        
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i> Wiring & rewiring</li>
+                            <li><i class="fas fa-check-circle"></i> Lighting installation</li>
+                            <li><i class="fas fa-check-circle"></i> Power points & switches</li>
+                            <li><i class="fas fa-check-circle"></i> Electrical safety checks</li>
+                            <li><i class="fas fa-check-circle"></i> Circuit breaker repair</li>
+                            <li><i class="fas fa-check-circle"></i> Ceiling fan installation</li>
+                        </ul>
+                        
+                        <div class="service-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong>Response Time</strong>
+                                    <span>Within 2 hours</span>
+                                </div>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <div>
+                                    <strong>Warranty</strong>
+                                    <span>2 years on workmanship</span>
+                                </div>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-tag"></i>
+                                <div>
+                                    <strong>Starting from</strong>
+                                    <span>$60</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-cta">
+                            <a href="contact.html?service=electrical" class="btn-service primary">
+                                <i class="fas fa-calculator"></i> Get Free Quote
+                            </a>
+                            <a href="tel:+6590744822" class="btn-service outline">
+                                <i class="fas fa-phone-alt"></i> Call Now
+                            </a>
+                        </div>
+                    </div>
+                    <div class="service-image" data-aos="fade-left">
+                        <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=600&auto=format&fit=crop" alt="Professional Electrical Services Singapore">
+                        <div class="service-badge">Licensed</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICE 3: Aircon -->
+        <section id="aircon" class="service-category">
+            <div class="container">
+                <div class="service-detail-grid">
+                    <div class="service-image" data-aos="fade-right">
+                        <img src="https://images.unsplash.com/photo-1620027582539-a764552a81b3?q=80&w=600&auto=format&fit=crop" alt="Aircon Services Singapore">
+                        <div class="service-badge">Same Day</div>
+                    </div>
+                    <div class="service-content" data-aos="fade-left">
+                        <span class="service-subtitle">Service 03</span>
+                        <h2>Aircon Services</h2>
+                        <p class="service-description">
+                            Keep your air conditioner running efficiently with our professional maintenance, repair, and installation services for all brands.
+                        </p>
+                        
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i> Aircon installation</li>
+                            <li><i class="fas fa-check-circle"></i> Chemical cleaning</li>
+                            <li><i class="fas fa-check-circle"></i> Gas top-up</li>
+                            <li><i class="fas fa-check-circle"></i> Repair & troubleshooting</li>
+                            <li><i class="fas fa-check-circle"></i> Regular maintenance</li>
+                            <li><i class="fas fa-check-circle"></i> Leak detection</li>
+                        </ul>
+                        
+                        <div class="service-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong>Response Time</strong>
+                                    <span>Within 4 hours</span>
+                                </div>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <div>
+                                    <strong>Warranty</strong>
+                                    <span>1 year on repairs</span>
+                                </div>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-tag"></i>
+                                <div>
+                                    <strong>Starting from</strong>
+                                    <span>$50</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-cta">
+                            <a href="contact.html?service=aircon" class="btn-service primary">
+                                <i class="fas fa-calculator"></i> Get Free Quote
+                            </a>
+                            <a href="tel:+6590744822" class="btn-service outline">
+                                <i class="fas fa-phone-alt"></i> Call Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICE 4: Painting -->
+        <section id="painting" class="service-category">
+            <div class="container">
+                <div class="service-detail-grid">
+                    <div class="service-content" data-aos="fade-right">
+                        <span class="service-subtitle">Service 04</span>
+                        <h2>Professional Painting</h2>
+                        <p class="service-description">
+                            Transform your space with our professional painting services. We use premium paints and ensure perfect finish for both residential and commercial properties.
+                        </p>
+                        
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i> Interior painting</li>
+                            <li><i class="fas fa-check-circle"></i> Exterior painting</li>
+                            <li><i class="fas fa-check-circle"></i> Wallpaper removal</li>
+                            <li><i class="fas fa-check-circle"></i> Texture painting</li>
+                            <li><i class="fas fa-check-circle"></i> Ceiling painting</li>
+                            <li><i class="fas fa-check-circle"></i> Color consultation</li>
+                        </ul>
+                        
+                        <div class="service-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong>Project Timeline</strong>
+                                    <span>2-5 days average</span>
+                                </div>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <div>
+                                    <strong>Warranty</strong>
+                                    <span>2 years on workmanship</span>
+                                </div>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-tag"></i>
+                                <div>
+                                    <strong>Starting from</strong>
+                                    <span>$400/room</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-cta">
+                            <a href="contact.html?service=painting" class="btn-service primary">
+                                <i class="fas fa-calculator"></i> Get Free Quote
+                            </a>
+                            <a href="tel:+6590744822" class="btn-service outline">
+                                <i class="fas fa-phone-alt"></i> Call Now
+                            </a>
+                        </div>
+                    </div>
+                    <div class="service-image" data-aos="fade-left">
+                        <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?q=80&w=600&auto=format&fit=crop" alt="Professional Painting Services Singapore">
+                        <div class="service-badge">Premium Finish</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICE 5: Tiling -->
+        <section id="tiling" class="service-category">
+            <div class="container">
+                <div class="service-detail-grid">
+                    <div class="service-image" data-aos="fade-right">
+                        <img src="https://images.unsplash.com/photo-1583679092337-53d24249ea94?q=80&w=600&auto=format&fit=crop" alt="Tiling Services Singapore">
+                        <div class="service-badge">Waterproofing</div>
+                    </div>
+                    <div class="service-content" data-aos="fade-left">
+                        <span class="service-subtitle">Service 05</span>
+                        <h2>Tiling Works</h2>
+                        <p class="service-description">
+                            Expert tiling for floors and walls. We ensure perfect alignment, waterproofing, and lasting durability for kitchens, bathrooms, and living areas.
+                        </p>
+                        
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i> Floor tiling</li>
+                            <li><i class="fas fa-check-circle"></i> Wall tiling</li>
+                            <li><i class="fas fa-check-circle"></i> Mosaic installation</li>
+                            <li><i class="fas fa-check-circle"></i> Waterproofing</li>
+                            <li><i class="fas fa-check-circle"></i> Grouting & sealing</li>
+                            <li><i class="fas fa-check-circle"></i> Tile repair</li>
+                        </ul>
+                        
+                        <div class="service-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong>Project Timeline</strong>
+                                    <span>3-7 days</span>
+                                </div>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <div>
+                                    <strong>Warranty</strong>
+                                    <span>3 years on workmanship</span>
+                                </div>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-tag"></i>
+                                <div>
+                                    <strong>Starting from</strong>
+                                    <span>$6/sq ft</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-cta">
+                            <a href="contact.html?service=tiling" class="btn-service primary">
+                                <i class="fas fa-calculator"></i> Get Free Quote
+                            </a>
+                            <a href="tel:+6590744822" class="btn-service outline">
+                                <i class="fas fa-phone-alt"></i> Call Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICE 6: Renovation -->
+        <section id="renovation" class="service-category">
+            <div class="container">
+                <div class="service-detail-grid">
+                    <div class="service-content" data-aos="fade-right">
+                        <span class="service-subtitle">Service 06</span>
+                        <h2>Full Renovation</h2>
+                        <p class="service-description">
+                            Complete home or office renovation. From design to completion, we handle everything with quality and care. HDB, condo, and commercial spaces.
+                        </p>
+                        
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i> HDB renovation</li>
+                            <li><i class="fas fa-check-circle"></i> Condo renovation</li>
+                            <li><i class="fas fa-check-circle"></i> Office renovation</li>
+                            <li><i class="fas fa-check-circle"></i> Kitchen renovation</li>
+                            <li><i class="fas fa-check-circle"></i> Bathroom renovation</li>
+                            <li><i class="fas fa-check-circle"></i> Design consultation</li>
+                        </ul>
+                        
+                        <div class="service-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong>Project Timeline</strong>
+                                    <span>4-8 weeks</span>
+                                </div>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <div>
+                                    <strong>Warranty</strong>
+                                    <span>5 years on workmanship</span>
+                                </div>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-tag"></i>
+                                <div>
+                                    <strong>Free</strong>
+                                    <span>Design consultation</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-cta">
+                            <a href="contact.html?service=renovation" class="btn-service primary">
+                                <i class="fas fa-calculator"></i> Get Free Quote
+                            </a>
+                            <a href="tel:+6590744822" class="btn-service outline">
+                                <i class="fas fa-phone-alt"></i> Call Now
+                            </a>
+                        </div>
+                    </div>
+                    <div class="service-image" data-aos="fade-left">
+                        <img src="https://images.unsplash.com/photo-1556912173-3e7ed36ea0d6?q=80&w=600&auto=format&fit=crop" alt="Renovation Services Singapore">
+                        <div class="service-badge">5-Year Warranty</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICE 7: Demolition -->
+        <section id="demolition" class="service-category">
+            <div class="container">
+                <div class="service-detail-grid">
+                    <div class="service-image" data-aos="fade-right">
+                        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=600&auto=format&fit=crop" alt="Demolition Services Singapore">
+                        <div class="service-badge">Licensed</div>
+                    </div>
+                    <div class="service-content" data-aos="fade-left">
+                        <span class="service-subtitle">Service 07</span>
+                        <h2>Demolition Works</h2>
+                        <p class="service-description">
+                            Safe, controlled demolition for any project size. We handle debris removal and site clearance with full safety compliance.
+                        </p>
+                        
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i> Wall hacking</li>
+                            <li><i class="fas fa-check-circle"></i> Structure removal</li>
+                            <li><i class="fas fa-check-circle"></i> Debris clearance</li>
+                            <li><i class="fas fa-check-circle"></i> Site preparation</li>
+                            <li><i class="fas fa-check-circle"></i> Selective demolition</li>
+                            <li><i class="fas fa-check-circle"></i> Full strip-out</li>
+                        </ul>
+                        
+                        <div class="service-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong>Project Timeline</strong>
+                                    <span>1-5 days</span>
+                                </div>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <div>
+                                    <strong>Safety</strong>
+                                    <span>Fully insured</span>
+                                </div>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-tag"></i>
+                                <div>
+                                    <strong>Free</strong>
+                                    <span>Site inspection</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-cta">
+                            <a href="contact.html?service=demolition" class="btn-service primary">
+                                <i class="fas fa-calculator"></i> Get Free Quote
+                            </a>
+                            <a href="tel:+6590744822" class="btn-service outline">
+                                <i class="fas fa-phone-alt"></i> Call Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICE 8: Reinstatement -->
+        <section id="reinstatement" class="service-category">
+            <div class="container">
+                <div class="service-detail-grid">
+                    <div class="service-content" data-aos="fade-right">
+                        <span class="service-subtitle">Service 08</span>
+                        <h2>Reinstatement</h2>
+                        <p class="service-description">
+                            Restore your commercial or residential space to original condition. We handle all reinstatement works efficiently, meeting landlord requirements.
+                        </p>
+                        
+                        <ul class="service-features">
+                            <li><i class="fas fa-check-circle"></i> Office reinstatement</li>
+                            <li><i class="fas fa-check-circle"></i> Shop restoration</li>
+                            <li><i class="fas fa-check-circle"></i> Rental property reinstatement</li>
+                            <li><i class="fas fa-check-circle"></i> Painting & touch-up</li>
+                            <li><i class="fas fa-check-circle"></i> Flooring restoration</li>
+                            <li><i class="fas fa-check-circle"></i> Full handover ready</li>
+                        </ul>
+                        
+                        <div class="service-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong>Project Timeline</strong>
+                                    <span>3-10 days</span>
+                                </div>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <div>
+                                    <strong>Warranty</strong>
+                                    <span>1 year</span>
+                                </div>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-tag"></i>
+                                <div>
+                                    <strong>Free</strong>
+                                    <span>Inspection</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-cta">
+                            <a href="contact.html?service=reinstatement" class="btn-service primary">
+                                <i class="fas fa-calculator"></i> Get Free Quote
+                            </a>
+                            <a href="tel:+6590744822" class="btn-service outline">
+                                <i class="fas fa-phone-alt"></i> Call Now
+                            </a>
+                        </div>
+                    </div>
+                    <div class="service-image" data-aos="fade-left">
+                        <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=600&auto=format&fit=crop" alt="Reinstatement Services Singapore">
+                        <div class="service-badge">Fast Turnaround</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        
+        // Active service link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.service-category');
+            const navLinks = document.querySelectorAll('.service-links a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        Promise.all([
+            fetch('header.html').then(res => res.text()),
+            fetch('footer.html').then(res => res.text())
+        ]).then(([header, footer]) => {
+            document.getElementById('header-placeholder').innerHTML = header;
+            document.getElementById('footer-placeholder').innerHTML = footer;
+        });
+    </script>
+</body>
+</html>

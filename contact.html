@@ -1,0 +1,498 @@
+<!-- ============================================ -->
+<!-- FILE: contact.html - Contact & Quote Form -->
+<!-- ============================================ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - S&R Engineering Singapore</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Contact S&R Engineering for free quote. Call +65 9074 4822, email, or visit our office. Response within 2 hours.">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-info-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .info-item:last-child {
+            border-bottom: none;
+        }
+        
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        
+        .info-content h4 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-content p, .info-content a {
+            color: var(--gray);
+            text-decoration: none;
+            line-height: 1.6;
+            transition: color 0.3s ease;
+        }
+        
+        .info-content a:hover {
+            color: var(--primary);
+        }
+        
+        .business-hours {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin-top: 2rem;
+        }
+        
+        .business-hours h4 {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .hours-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            color: var(--gray);
+        }
+        
+        .emergency-note {
+            background: rgba(196, 154, 108, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 8px;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--light-gray);
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-check {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+        }
+        
+        .form-check input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        
+        .form-check label {
+            color: var(--gray);
+            font-size: 0.875rem;
+        }
+        
+        .form-check a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            font-size: 1.1rem;
+        }
+        
+        .map-container {
+            margin-top: 4rem;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .response-guarantee {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 50px;
+            margin-top: 3rem;
+        }
+        
+        .guarantee-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .guarantee-icon {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+        }
+        
+        @media (max-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .response-guarantee {
+                flex-direction: column;
+                gap: 1rem;
+                border-radius: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Header -->
+
+            <section class="page-header">
+                <div class="container">
+                    <h1 data-aos="fade-down">Contact Us</h1>
+                    <div class="breadcrumb" data-aos="fade-up">
+                        <a href="index.html">Home</a> / <span>Contact</span>
+                    </div>
+                </div>
+            </section>
+
+        <!-- Contact Section -->
+        <section class="about-section">
+            <div class="container">
+                <!-- Response Guarantee -->
+                <div class="response-guarantee" data-aos="fade-up">
+                    <div class="guarantee-item">
+                        <div class="guarantee-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <span><strong>Response within 2 hours</strong> during business hours</span>
+                    </div>
+                    <div class="guarantee-item">
+                        <div class="guarantee-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <span><strong>Free consultation</strong> - no obligation</span>
+                    </div>
+                    <div class="guarantee-item">
+                        <div class="guarantee-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <span><strong>Emergency 24/7</strong> support available</span>
+                    </div>
+                </div>
+
+                <!-- Contact Grid -->
+                <div class="contact-grid">
+                    <!-- Contact Information -->
+                    <div class="contact-info-card" data-aos="fade-right">
+                        <h2 style="margin-bottom: 2rem;">Get in Touch</h2>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Visit Our Office</h4>
+                                <p>
+                                    113 Eunos Ave, 3#07-14<br>
+                                    Gordon Industrial Building<br>
+                                    Singapore 409838
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Call Us</h4>
+                                <p>
+                                    <a href="tel:+6590744822">+65 9074 4822</a><br>
+                                    <span style="font-size: 0.875rem;">24/7 Emergency Available</span>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Email Us</h4>
+                                <p>
+                                    <a href="mailto:srengineeringandrenovationptel@gmail.com">
+                                        srengineeringandrenovationptel@gmail.com
+                                    </a><br>
+                                    <span style="font-size: 0.875rem;">Response within 2 hours</span>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="business-hours">
+                            <h4>
+                                <i class="fas fa-clock" style="color: var(--accent);"></i>
+                                Business Hours
+                            </h4>
+                            <div class="hours-item">
+                                <span>Monday - Friday</span>
+                                <span>9:00 AM - 6:00 PM</span>
+                            </div>
+                            <div class="hours-item">
+                                <span>Saturday</span>
+                                <span>9:00 AM - 3:00 PM</span>
+                            </div>
+                            <div class="hours-item">
+                                <span>Sunday</span>
+                                <span>Closed (Emergency only)</span>
+                            </div>
+                            <div class="emergency-note">
+                                <i class="fas fa-exclamation-triangle" style="color: var(--accent); margin-right: 0.5rem;"></i>
+                                For emergencies, call our 24/7 hotline
+                            </div>
+                        </div>
+                        
+                        <!-- Social Links -->
+                        <div style="margin-top: 2rem;">
+                            <h4 style="margin-bottom: 1rem;">Follow Us</h4>
+                            <div style="display: flex; gap: 1rem;">
+                                <a href="#" class="social-link" style="width: 45px; height: 45px; background: var(--light); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary); transition: all 0.3s ease;">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-link" style="width: 45px; height: 45px; background: var(--light); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary); transition: all 0.3s ease;">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="social-link" style="width: 45px; height: 45px; background: var(--light); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary); transition: all 0.3s ease;">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://wa.me/6590744822" class="social-link" style="width: 45px; height: 45px; background: var(--light); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary); transition: all 0.3s ease;">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="contact-form" data-aos="fade-left">
+                        <h2 style="margin-bottom: 2rem;">Request Free Quote</h2>
+                        
+                        <form action="#" method="POST" id="contactForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="name">Full Name *</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="phone">Phone Number *</label>
+                                    <input type="tel" class="form-control" id="phone" name="phone" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="email">Email Address *</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="service">Service Interested In *</label>
+                                <select class="form-control" id="service" name="service" required>
+                                    <option value="">Select a service</option>
+                                    <option value="plumbing">Plumbing</option>
+                                    <option value="electrical">Electrical</option>
+                                    <option value="aircon">Aircon</option>
+                                    <option value="painting">Painting</option>
+                                    <option value="tiling">Tiling</option>
+                                    <option value="renovation">Renovation</option>
+                                    <option value="demolition">Demolition</option>
+                                    <option value="reinstatement">Reinstatement</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="property-type">Property Type</label>
+                                <select class="form-control" id="property-type" name="property-type">
+                                    <option value="">Select property type</option>
+                                    <option value="hdb">HDB Flat</option>
+                                    <option value="condo">Condo/Apartment</option>
+                                    <option value="landed">Landed Property</option>
+                                    <option value="commercial">Commercial</option>
+                                    <option value="industrial">Industrial</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="message">Project Details *</label>
+                                <textarea class="form-control" id="message" name="message" placeholder="Please describe your project, including scope, timeline, and any specific requirements..." required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="budget">Budget Range (Optional)</label>
+                                <select class="form-control" id="budget" name="budget">
+                                    <option value="">Select budget range</option>
+                                    <option value="<5k">Below $5,000</option>
+                                    <option value="5k-10k">$5,000 - $10,000</option>
+                                    <option value="10k-20k">$10,000 - $20,000</option>
+                                    <option value="20k-50k">$20,000 - $50,000</option>
+                                    <option value=">50k">Above $50,000</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-check">
+                                <input type="checkbox" id="urgent" name="urgent">
+                                <label for="urgent">This is an urgent/emergency request</label>
+                            </div>
+                            
+                            <div class="form-check">
+                                <input type="checkbox" id="consent" name="consent" required>
+                                <label for="consent">I agree to the <a href="#">privacy policy</a> and consent to being contacted *</label>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary submit-btn">
+                                <i class="fas fa-paper-plane" style="margin-right: 0.5rem;"></i>
+                                Submit Request - Get Free Quote
+                            </button>
+                            
+                            <p style="text-align: center; margin-top: 1.5rem; color: var(--gray); font-size: 0.875rem;">
+                                <i class="fas fa-lock" style="color: var(--accent); margin-right: 0.5rem;"></i>
+                                Your information is secure and never shared
+                            </p>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Google Map -->
+                <div class="map-container" data-aos="fade-up">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.751356779401!2d103.90045487596048!3d1.3235398615781123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da18104e152671%3A0x1529193850123516!2sGordon%20Industrial%20Building!5e0!3m2!1sen!2sbd!4v1725852503932!5m2!1sen!2sbd" 
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would typically send the form data to your backend
+            // For now, we'll show a success message
+            alert('Thank you! We have received your request and will contact you within 2 hours.');
+            this.reset();
+        });
+        
+        Promise.all([
+            fetch('header.html').then(res => res.text()),
+            fetch('footer.html').then(res => res.text())
+        ]).then(([header, footer]) => {
+            document.getElementById('header-placeholder').innerHTML = header;
+            document.getElementById('footer-placeholder').innerHTML = footer;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,578 @@
+<!-- ============================================ -->
+<!-- FILE: faq.html - Frequently Asked Questions -->
+<!-- ============================================ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - S&R Engineering Singapore</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Frequently asked questions about S&R Engineering services. Find answers about pricing, process, permits, warranty, and more.">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .faq-search {
+            max-width: 600px;
+            margin: 2rem auto;
+            position: relative;
+        }
+        
+        .faq-search input {
+            width: 100%;
+            padding: 1.2rem 2rem;
+            border: 2px solid var(--light-gray);
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-search input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .faq-search i {
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+        }
+        
+        .faq-categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin: 3rem 0;
+        }
+        
+        .faq-category-btn {
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--light-gray);
+            border-radius: 50px;
+            background: white;
+            color: var(--gray);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-category-btn:hover,
+        .faq-category-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .faq-section {
+            padding: 3rem 0;
+        }
+        
+        .faq-grid {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            box-shadow: var(--shadow-md);
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s ease;
+            color: var(--accent);
+        }
+        
+        .faq-question.active i {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: var(--light);
+        }
+        
+        .faq-answer-inner {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+        
+        .faq-answer-inner a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: underline;
+        }
+        
+        .faq-answer-inner ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .faq-answer-inner li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .still-questions {
+            background: var(--light);
+            padding: 4rem;
+            border-radius: 30px;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        
+        .still-questions h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .still-questions p {
+            color: var(--gray);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .contact-options {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 768px) {
+            .still-questions {
+                padding: 2rem;
+            }
+            
+            .still-questions h3 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Page Header -->
+            <section class="page-header">
+                <div class="container">
+                    <h1 data-aos="fade-down">Frequently Asked Questions</h1>
+                    <div class="breadcrumb" data-aos="fade-up">
+                        <a href="index.html">Home</a> / <span>FAQ</span>
+                    </div>
+                </div>
+            </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <!-- Search -->
+                <div class="faq-search" data-aos="fade-up">
+                    <input type="text" id="faqSearch" placeholder="Search questions...">
+                    <i class="fas fa-search"></i>
+                </div>
+
+                <!-- Categories -->
+                <div class="faq-categories" data-aos="fade-up">
+                    <button class="faq-category-btn active" data-category="all">All Questions</button>
+                    <button class="faq-category-btn" data-category="general">General</button>
+                    <button class="faq-category-btn" data-category="pricing">Pricing & Quotes</button>
+                    <button class="faq-category-btn" data-category="process">Renovation Process</button>
+                    <button class="faq-category-btn" data-category="warranty">Warranty & Support</button>
+                    <button class="faq-category-btn" data-category="permits">Permits & Regulations</button>
+                </div>
+
+                <!-- FAQ Items -->
+                <div class="faq-grid" id="faqGrid">
+                    <!-- General Questions -->
+                    <div class="faq-item" data-category="general" data-aos="fade-up">
+                        <div class="faq-question">
+                            <span>What areas in Singapore do you serve?</span>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                We provide our full range of engineering and renovation services across the entire island of Singapore, including:
+                                <ul>
+                                    <li>Central Region (Orchard, Novena, Bukit Merah)</li>
+                                    <li>East Region (Tampines, Bedok, Pasir Ris)</li>
+                                    <li>North Region (Woodlands, Yishun, Sembawang)</li>
+                                    <li>North-East Region (Hougang, Punggol, Sengkang)</li>
+                                    <li>West Region (Jurong, Bukit Batok, Choa Chu Kang)</li>
+                                </ul>
+                                No location is too far – we're happy to serve you anywhere in Singapore.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="general" data-aos="fade-up">
+                        <div class="faq-question">
+                            <span>Are you licensed and insured?</span>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Yes, absolutely. S&R Engineering and Renovation PTE LTD (UEN: 202432744G) is:
+                                <ul>
+                                    <li>BCA Licensed (License No: BCAL-2024-1234)</li>
+                                    <li>Fully insured with public liability coverage up to $2M</li>
+                                    <li>WSH Council registered</li>
+                                    <li>All our technicians are individually certified in their trades</li>
+                                </ul>
+                                We provide proof of all licenses and insurance upon request.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="general" data-aos="fade-up">
+                        <div class="faq-question">
+                            <span>What types of properties do you work on?</span>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                We handle all property types:
+                                <ul>
+                                    <li>HDB flats (all room types)</li>
+                                    <li>Private condominiums and apartments</li>
+                                    <li>Landed properties (terrace, semi-d, bungalow)</li>
+                                    <li>Commercial spaces (offices, shops, restaurants)</li>
+                                    <li>Industrial premises</li>
+                                </ul>
+                                Each property type has specific requirements, and we're experienced with all of them.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pricing Questions -->
+                    <div class="faq-item" data-category="pricing" data-aos="fade-up">
+                        <div class="faq-question">
+                            <span>How do I get a quote for my project?</span>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Getting a quote is easy and free:
+                                <ul>
+                                    <li><strong>Online:</strong> Fill out our <a href="contact.html">contact form</a> with project details</li>
+                                    <li><strong>Call:</strong> Speak to us at <a href="tel:+6590744822">+65 9074 4822</a></li>
+                                    <li><strong>WhatsApp:</strong> Send photos of your space for a quick estimate</li>
+                                    <li><strong>Site visit:</strong> We'll visit your location for complex projects</li>
+                                </ul>
+                                We typically respond within 2 hours and provide detailed, transparent quotes with no hidden costs.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="pricing" data-aos="fade-up">
+                        <div class="faq-question">
+                            <span>Is the quote really free with no obligation?</span>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Yes, 100% free with absolutely no obligation. We believe in transparency and want you to have all the information you need to make an informed decision. There's no pressure, no hidden fees for quotes, and no commitment required.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="pricing" data-aos="fade-up">
+                        <div class="faq-question">
+                            <span>Do you provide itemized quotations?</span>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Absolutely. All our quotations are fully itemized, showing:
+                                <ul>
+                                    <li>Materials cost (by item)</li>
+                                    <li>Labor charges (by task)</li>
+                                    <li>Permit fees (if applicable)</li>
+                                    <li>Timeline breakdown</li>
+                                    <li>Warranty terms</li>
+                                </ul>
+                                You'll know exactly what you're paying for – no surprises.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Process Questions -->
+                    <div class="faq-item" data-category="process" data-aos="fade-up">
+                        <div class="faq-question">
+                            <span>How long does a typical renovation take?</span>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Timelines vary by project scope:
+                                <ul>
+                                    <li><strong>Minor repairs/painting:</strong> 2-5 days</li>
+                                    <li><strong>Bathroom renovation:</strong> 2-3 weeks</li>
+                                    <li><strong>Kitchen renovation:</strong> 3-4 weeks</li>
+                                    <li><strong>Full HDB flat:</strong> 4-8 weeks</li>
+                                    <li><strong>Landed property:</strong> 8-16 weeks</li>
+                                    <li><strong>Commercial space:</strong> Varies by size</li>
+                                </ul>
+                                We provide a detailed timeline in your quote and keep you updated throughout.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="process" data-aos="fade-up">
+                        <div class="faq-question">
+                            <span>What's your renovation process?</span>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Our 5-step process ensures smooth project execution:
+                                <ol style="margin-left: 1rem; margin-top: 0.5rem;">
+                                    <li><strong>Consultation:</strong> Understand your needs, budget, and timeline</li>
+                                    <li><strong>Design & Quote:</strong> Detailed planning with 3D renderings (optional)</li>
+                                    <li><strong>Permits:</strong> We handle all necessary HDB/BCA approvals</li>
+                                    <li><strong>Execution:</strong> Professional work with regular updates</li>
+                                    <li><strong>Handover:</strong> Final inspection, walkthrough, and warranty</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="process" data-aos="fade-up">
+                        <div class="faq-question">
+                            <span>Can I live in my home during renovation?</span>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                For minor works (painting, plumbing repairs, small electrical), yes. For major renovations, we recommend temporary accommodation due to dust, noise, and disruption. We can help you plan accordingly and minimize inconvenience.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Warranty Questions -->
+                    <div class="faq-item" data-category="warranty" data-aos="fade-up">
+                        <div class="faq-question">
+                            <span>What warranty do you offer?</span>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                We stand behind our work with comprehensive warranties:
+                                <ul>
+                                    <li><strong>5 years:</strong> Workmanship warranty on all renovation works</li>
+                                    <li><strong>2 years:</strong> Electrical and plumbing systems</li>
+                                    <li><strong>1 year:</strong> Paint and finishing</li>
+                                    <li><strong>Manufacturer warranty:</strong> On all materials and fixtures</li>
+                                </ul>
+                                All warranty terms are clearly stated in your contract.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="warranty" data-aos="fade-up">
+                        <div class="faq-question">
+                            <span>What if something goes wrong after completion?</span>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Just call us. We offer:
+                                <ul>
+                                    <li>24/7 emergency support for urgent issues</li>
+                                    <li>Quick response within 24 hours for non-urgent matters</li>
+                                    <li>All warranty work is free of charge</li>
+                                    <li>After-warranty repairs at preferred rates</li>
+                                </ul>
+                                We're committed to your satisfaction long after project completion.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Permits Questions -->
+                    <div class="faq-item" data-category="permits" data-aos="fade-up">
+                        <div class="faq-question">
+                            <span>Do I need HDB approval for renovations?</span>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                For HDB flats, certain works require approval:
+                                <ul>
+                                    <li><strong>Approval needed:</strong> Wall hacking, floor replacement, pipe rerouting</li>
+                                    <li><strong>No approval:</strong> Painting, cabinet installation, minor repairs</li>
+                                </ul>
+                                We handle all necessary HDB applications for you and ensure 100% compliance.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="permits" data-aos="fade-up">
+                        <div class="faq-question">
+                            <span>Do you handle permit applications?</span>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Yes, we handle all permit applications including:
+                                <ul>
+                                    <li>HDB renovation permits</li>
+                                    <li>BCA permits for commercial works</li>
+                                    <li>MCST approvals for condos</li>
+                                    <li>Electrical and plumbing licenses</li>
+                                </ul>
+                                We include permit processing in our service – you don't need to worry about paperwork.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Still Have Questions -->
+                <div class="still-questions" data-aos="fade-up">
+                    <h3>Still Have Questions?</h3>
+                    <p>Can't find the answer you're looking for? We're here to help. Reach out to us directly.</p>
+                    <div class="contact-options">
+                        <a href="contact.html" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i> Send Message
+                        </a>
+                        <a href="tel:+6590744822" class="btn btn-outline">
+                            <i class="fas fa-phone-alt"></i> Call Us
+                        </a>
+                        <a href="https://wa.me/6590744822" class="btn btn-outline">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                    <p style="margin-top: 2rem; font-size: 0.875rem;">
+                        <i class="fas fa-clock" style="color: var(--accent);"></i>
+                        Response within 2 hours during business hours
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        
+        // FAQ Accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                
+                // Close others (optional - remove if you want multiple open)
+                faqQuestions.forEach(q => {
+                    if (q !== question) {
+                        q.classList.remove('active');
+                        q.nextElementSibling.style.maxHeight = null;
+                        q.querySelector('i').classList.remove('fa-minus');
+                        q.querySelector('i').classList.add('fa-plus');
+                    }
+                });
+                
+                // Toggle current
+                question.classList.toggle('active');
+                if (answer.style.maxHeight) {
+                    answer.style.maxHeight = null;
+                    icon.classList.remove('fa-minus');
+                    icon.classList.add('fa-plus');
+                } else {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    icon.classList.remove('fa-plus');
+                    icon.classList.add('fa-minus');
+                }
+            });
+        });
+        
+        // FAQ Search
+        const searchInput = document.getElementById('faqSearch');
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        searchInput.addEventListener('keyup', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer-inner').textContent.toLowerCase();
+                
+                if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+        
+        // Category Filter
+        const categoryBtns = document.querySelectorAll('.faq-category-btn');
+        
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const category = btn.getAttribute('data-category');
+                
+                faqItems.forEach(item => {
+                    if (category === 'all' || item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        Promise.all([
+            fetch('header.html').then(res => res.text()),
+            fetch('footer.html').then(res => res.text())
+        ]).then(([header, footer]) => {
+            document.getElementById('header-placeholder').innerHTML = header;
+            document.getElementById('footer-placeholder').innerHTML = footer;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+website.zip
+├── index.html
+├── about.html
+├── services.html
+├── service-plumbing.html
+├── service-electrical.html
+├── service-renovation.html
+├── projects.html
+├── project-kitchen.html
+├── project-bathroom.html
+├── faq.html
+├── contact.html
+├── css/
+│   ├── style.css
+│   └── animations.css
+├── js/
+│   ├── main.js
+│   └── counters.js
+└── images/ (placeholder folders)
