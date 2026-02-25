@@ -479,3 +479,104 @@ h4 { font-size: 1.25rem; }
         font-size: 2.5rem;
     }
 }
+
+
+
+/* Additional Utility Classes */
+/* Update this section in your existing CSS - around line 250 */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .logo-brand {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .company-info {
+        width: 100%;
+        align-items: center;
+    }
+    
+    .uen-badge {
+        align-self: center;
+    }
+    
+    .contact-header {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .contact-item {
+        white-space: normal;
+        text-align: center;
+    }
+    
+    /* FIXED MOBILE NAVIGATION */
+    .mobile-menu-btn {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 1rem;
+        background: var(--primary);
+        border: none;
+        color: white;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    
+    .mobile-menu-btn i {
+        font-size: 1.2rem;
+    }
+    
+    .nav-list {
+        display: none !important;
+        width: 100%;
+        flex-direction: column !important;
+        background: white;
+        padding: 0 !important;
+        margin: 0;
+        gap: 0 !important;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    .nav-list.show {
+        display: flex !important;
+    }
+    
+    .nav-list li {
+        width: 100%;
+        border-bottom: 1px solid var(--light-gray);
+    }
+    
+    .nav-list li:last-child {
+        border-bottom: none;
+    }
+    
+    .nav-list a {
+        display: block;
+        padding: 1rem !important;
+        color: var(--dark) !important;
+        text-align: center;
+    }
+    
+    .nav-list a:hover,
+    .nav-list a.active {
+        background: var(--primary) !important;
+        color: white !important;
+    }
+    
+    .nav-list a::after {
+        display: none !important; /* Remove underline animation on mobile */
+    }
+    
+    .btn-quote {
+        width: 100%;
+        justify-content: center;
+    }
+}
